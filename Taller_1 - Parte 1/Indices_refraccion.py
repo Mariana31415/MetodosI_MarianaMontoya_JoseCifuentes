@@ -34,8 +34,9 @@ for promedio in tuplas_plastico:
 resultado = resultado/len(tuplas_plastico)
 print(resultado)
 
+#Desviacion estandar
+
 
 
 plt.savefig('Kapton.png')
-
 
