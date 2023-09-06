@@ -88,7 +88,32 @@ def funcion_general(lista_elementos:pd.DataFrame):
         ax.plot(rango,np.full_like(rango,promedio_general + desviacion_estandar_general),color='k',label = 'Desviacion estandar')
         ax.scatter([tuplas[0] for tuplas in arreglo_general],[tuplas[1] for tuplas in arreglo_general])
         ax.legend()
-        plt.savefig(lista_elementos.iloc[i][0] + '/' + lista_elementos.iloc[i][2] +'.png')
+
+        if lista_elementos.iloc[i][0] == 'Vidrio':
+            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+        
+        elif lista_elementos.iloc[i][0] == 'Materia Inorgánica':
+            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+        
+        elif lista_elementos.iloc[i][0] == 'Materia Orgánica':
+            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+
+        elif lista_elementos.iloc[i][0] == 'Plásticos Comerciales':
+            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+        
+        elif lista_elementos.iloc[i][0] == 'Exotico':
+            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+
+        elif lista_elementos.iloc[i][0] == 'Combustible':
+            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+
+        elif lista_elementos.iloc[i][0] == 'Mezclas':   
+            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+        
+        elif lista_elementos.iloc[i][0] == 'Adhesivos Ópticos':
+            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+
+        #plt.savefig(lista_elementos.iloc[i][0] + '/' + lista_elementos.iloc[i][2] +'.png')
         plt.close()
 
 funcion_general(lista_elementos=lista_elementos)       
