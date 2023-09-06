@@ -1,1 +1,0 @@
-awk -F "," {print } indices_refraccion.csv>materiales.txt

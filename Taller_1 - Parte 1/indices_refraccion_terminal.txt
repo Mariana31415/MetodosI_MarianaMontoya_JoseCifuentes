@@ -1,2 +1,0 @@
-awk -F "," {print $1} indices_refraccion.csv>materiales.txt
-awk -F "," 'NR>1 {system("wget -P "$1" "$4)}' indices_refraccion.csv
