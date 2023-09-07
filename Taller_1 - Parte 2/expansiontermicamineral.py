@@ -24,7 +24,7 @@ def cohef_expansion(ruta):
     coef=[]
     tmedia=[]
     for i in range(len(volumen)-1):
-        valor_coef=(1/volumen[0])*(volumen[i+1]-volumen[i])/(temperatura[i+1]-temperatura[i])
+        valor_coef=(1/volumen[i])*(volumen[i+1]-volumen[i])/(temperatura[i+1]-temperatura[i])
         new_temp=(temperatura[i+1]+temperatura[i])/2
     
         tmedia.append(new_temp)
