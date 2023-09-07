@@ -1,14 +1,10 @@
 from mineral import Mineral
 import matplotlib.pyplot as plt
 import numpy as np
+import sympy as sym
 
-
-
-
-#Carga de datos
 
 def cohef_expansion(ruta):
-       
     file = open(ruta)
     datos = file.readlines()
     file.close()
@@ -28,7 +24,7 @@ def cohef_expansion(ruta):
     coef=[]
     tmedia=[]
     for i in range(len(volumen)-1):
-        valor_coef=(1/volumen[i])*(volumen[i+1]-volumen[i])/(temperatura[i+1]-temperatura[i])
+        valor_coef=(1/volumen[0])*(volumen[i+1]-volumen[i])/(temperatura[i+1]-temperatura[i])
         new_temp=(temperatura[i+1]+temperatura[i])/2
     
         tmedia.append(new_temp)
@@ -49,9 +45,4 @@ def cohef_expansion(ruta):
     plt.ylabel('Coheficiente\n de expansión',fontsize=15)
     plt.show()
 
-    
-    
-        
-                
-        
         
