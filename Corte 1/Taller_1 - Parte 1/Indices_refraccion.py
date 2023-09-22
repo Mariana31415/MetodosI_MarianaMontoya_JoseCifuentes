@@ -25,8 +25,6 @@ tuplas_plastico = tuplas_longitud_onda('./Plásticos/French.yml')
 tuplas_plastico = tuplas_longitud_onda('./Combustible/Wang-20C.yml')
 
 
-
-
 #Promedio n
 
 def promedio(n:list):
@@ -67,6 +65,9 @@ plt.savefig('Kapton.png')
 
 lista_elementos = pd.read_csv('./indices_refraccion.csv')
 
+
+
+
 #Funcion en general
 def funcion_general(lista_elementos:pd.DataFrame):
 
@@ -81,44 +82,50 @@ def funcion_general(lista_elementos:pd.DataFrame):
 
         #Graficar y guardar en cada uno
         fig,ax = plt.subplots()
-        ax.set_title(lista_elementos.iloc[i][0])
+        ax.set_title(lista_elementos.iloc[i,0])
         rango = np.linspace(min([tuplas[0] for tuplas in arreglo_general]),max([tuplas[0] for tuplas in arreglo_general]),100)
         ax.plot(rango,np.full_like(rango,promedio_general),color='r',label = 'promedio')
         ax.plot(rango,np.full_like(rango,promedio_general - desviacion_estandar_general),color='k',label = 'Desviacion estandar')
         ax.plot(rango,np.full_like(rango,promedio_general + desviacion_estandar_general),color='k',label = 'Desviacion estandar')
         ax.scatter([tuplas[0] for tuplas in arreglo_general],[tuplas[1] for tuplas in arreglo_general])
         ax.legend()
+        plt.close()
+        if lista_elementos.iloc[i,0]=='Exotico':
+            plt.savefig(lista_elementos.iloc[i,0] +  '/' + lista_elementos.iloc[i,2] + '.png')
+
 
         if lista_elementos.iloc[i][0] == 'Vidrio':
-            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+            plt.savefig(lista_elementos.iloc[i,-1] + '.png')
         
         elif lista_elementos.iloc[i][0] == 'Materia Inorgánica':
-            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+            plt.savefig(lista_elementos.iloc[i,-1] + '.png')
         
         elif lista_elementos.iloc[i][0] == 'Materia Orgánica':
-            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+            plt.savefig(lista_elementos.iloc[i,-1] + '.png')
 
         elif lista_elementos.iloc[i][0] == 'Plásticos Comerciales':
-            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+            plt.savefig(lista_elementos.iloc[i,-1] + '.png')
         
         elif lista_elementos.iloc[i][0] == 'Exotico':
-            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+            plt.savefig(lista_elementos.iloc[i,-1] + '.png')
 
         elif lista_elementos.iloc[i][0] == 'Combustible':
-            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+            plt.savefig(lista_elementos.iloc[i,-1] + '.png')
 
         elif lista_elementos.iloc[i][0] == 'Mezclas':   
-            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+            plt.savefig(lista_elementos.iloc[i,-1] + '.png')
         
         elif lista_elementos.iloc[i][0] == 'Adhesivos Ópticos':
-            plt.savefig(lista_elementos.iloc[i][2] + '.png')
+            plt.savefig(lista_elementos.iloc[i,-1] + '.png')
 
-        #plt.savefig(lista_elementos.iloc[i][0] + '/' + lista_elementos.iloc[i][2] +'.png')
-        plt.close()
+#plt.savefig(lista_elementos.iloc[i][0] + '/' + lista_elementos.iloc[i][2] +'.png')
+        
 
 funcion_general(lista_elementos=lista_elementos)       
 
-        
+
+#graficas
+
 
        
 
